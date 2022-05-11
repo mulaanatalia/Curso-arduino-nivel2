@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" >
+      </head>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+      <script>
+          const firebaseConfig = {
+            apiKey: "AIzaSyCq9nwUsDUvkSpyL60Od8_4ZhcNwSmqxFg",
+            authDomain: "controlelampadaujc.firebaseapp.com",
+            databaseURL: "https://controlelampadaujc-default-rtdb.firebaseio.com",
+            projectId: "controlelampadaujc",
+            storageBucket: "controlelampadaujc.appspot.com",
+            messagingSenderId: "869263158337",
+            appId: "1:869263158337:web:41f6e1ed5fc3b36d276ac0",
+            measurementId: "G-X6WFDMLX2C"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig)
+
+            function ledOn(){
+                firebase.database().ref('LAMPADA').set({
+                    estado: 'LIGADA'
+                });
+            }
+
+            function ledOff(){
+                firebase.database().ref('LAMPADA').set({
+                    estado: 'DESLIGADA'
+                });
+            }
+
+      </script>
+
+      <body>
+          <header>
+        <div>
+            <img src="logotipo.jpg" width="120">
+        </div>
+        <div>
+            <h2>TME Education Mozambique</h2>
+            <h3>Curso de Arduino Nivel 2</h3>
+            <h2>Universidade JoaquimmChissano - UJC</h2>
+            <h1>Controle Remoto de Iluminação</h1>
+        </div>
+        </header>
+
+        <div>
+            <fieldset>
+                <legend> <strong>Lâmpada</strong></legend>
+                    <div>
+                        <button class="ledOn" onclick="ledOn()">LIGAR</button>
+                        <button class="ledOff" onclick="ledOff()">DESLIGAR</button>
+                    </div>
+            </fieldset>
+        </div>
+
+        <footer> 
+            <p>
+                <strong>Direitos reservados &copy; Anatália Neves Mula - UJC</strong>
+            </p>
+        </footer>
+      </body>
+
+</html>
